@@ -2,8 +2,10 @@ import styled from "styled-components";
 import { BasicButtonStyle } from "./BasicButtonStyle";
 
 export const TurquoiseButton = (props) => {
-  const { children } = props;
-  return <TurquoiseButtonStyle>{children}</TurquoiseButtonStyle>;
+  const { children, onClick } = props;
+  return (
+    <TurquoiseButtonStyle onClick={onClick}>{children}</TurquoiseButtonStyle>
+  );
 };
 
 const TurquoiseButtonStyle = styled(BasicButtonStyle)`

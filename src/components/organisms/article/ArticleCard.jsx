@@ -1,11 +1,17 @@
 import styled from "styled-components";
 import { GrayButton } from "../../atoms/button/GrayButton";
+import { UserContext } from "../../../providers/UserProvider";
+import { useContext } from "react";
 
 export const ArticleCard = (props) => {
   const { article } = props;
+  const { userInfo } = useContext(UserContext);
+  const showState = userInfo ? userInfo.isAdmin : false;
   return (
     <ArticleCardStyle>
-      <img width={100} height={100} src={article.image} alt="article" />
+      {showState && (
+        <img width={100} height={100} src={article.image} alt="article" />
+      )}
       <div className="article__detail">
         <GrayButton>{article.genre}</GrayButton>
         <div className="article__detail__date">{article.date}</div>
